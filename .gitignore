@@ -1,0 +1,25 @@
+# Keil build output
+Objects/
+Listings/
+*.o
+*.d
+*.crf
+*.htm
+*.lst
+*.map
+*.lnp
+*.axf
+*.elf
+*.hex
+*.bin
+*.dep
+*.iex
+*.log
+
+# Keil user interface files
+*.uvgui.*
+*.uvguix.*
+
+# Backup files
+*.bak
+
