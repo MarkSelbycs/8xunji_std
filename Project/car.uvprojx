@@ -398,6 +398,13 @@
         </Group>
         <Group>
           <GroupName>Hardware</GroupName>
+          <Files>
+            <File>
+              <FileName>xun8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\src\xun8.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Library</GroupName>
