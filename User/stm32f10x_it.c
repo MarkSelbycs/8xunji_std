@@ -159,3 +159,20 @@ void SysTick_Handler(void)
 
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
+/*******************                 Additional Handler                   ****/
+/**
+  * @brief  EXTI Line0:校准按键PB0
+  */
+volatile int calibrate_flag = 0;
+void EXTI0_IRQHandler(void){
+	
+	
+	if(EXTI_GetITStatus(EXTI_Line0)!=RESET){
+			EXTI_ClearITPendingBit(EXTI_Line0);
+			calibrate_flag = 1;
+	}
+
+
+
+}
+

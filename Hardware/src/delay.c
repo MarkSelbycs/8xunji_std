@@ -14,6 +14,7 @@ void delay_ms(uint32_t ms){
 	
 	uint32_t start=sys_ms;
 	while((sys_ms-start)<ms);
+				//0-0<100
 }
 
 
