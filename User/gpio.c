@@ -3,9 +3,9 @@
 
 void GPIO_Config(){
 	
-	GPIO_InitTypeDef GPIO_Initstructure;
-	EXTI_InitTypeDef EXTI_Initstructure;
-	NVIC_InitTypeDef NVIC_Initstructure;
+	GPIO_InitTypeDef GPIO_InitStructure;
+	EXTI_InitTypeDef EXTI_InitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA|
 												RCC_APB2Periph_GPIOB|
@@ -17,32 +17,32 @@ void GPIO_Config(){
 	GPIO_ResetBits(GPIOB, GPIO_Pin_1 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 |
                           GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9);
 	
-	GPIO_Initstructure.GPIO_Pin=GPIO_Pin_0;
-	GPIO_Initstructure.GPIO_Mode=GPIO_Mode_IPU;
-	GPIO_Init(GPIOB,&GPIO_Initstructure);
+	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_0;
+	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_IPU;
+	GPIO_Init(GPIOB,&GPIO_InitStructure);
 	
-	GPIO_Initstructure.GPIO_Pin= GPIO_Pin_1 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 |
+	GPIO_InitStructure.GPIO_Pin= GPIO_Pin_1 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 |
                                     GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9;
-	GPIO_Initstructure.GPIO_Mode=GPIO_Mode_Out_PP;
-	GPIO_Initstructure.GPIO_Speed=GPIO_Speed_2MHz;
-	GPIO_Init(GPIOB,&GPIO_Initstructure);
+	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP;
+	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_2MHz;
+	GPIO_Init(GPIOB,&GPIO_InitStructure);
 	
 	
-	GPIO_Initstructure.GPIO_Pin=GPIO_Pin_15;
-	GPIO_Init(GPIOA,&GPIO_Initstructure);
+	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_15;
+	GPIO_Init(GPIOA,&GPIO_InitStructure);
 	
 	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB,GPIO_PinSource0);
-	EXTI_Initstructure.EXTI_Line=EXTI_Line0;
-	EXTI_Initstructure.EXTI_Mode=EXTI_Mode_Interrupt;
-	EXTI_Initstructure.EXTI_Trigger=EXTI_Trigger_Falling;
-	EXTI_Initstructure.EXTI_LineCmd=ENABLE;
-	EXTI_Init(&EXTI_Initstructure);
+	EXTI_InitStructure.EXTI_Line=EXTI_Line0;
+	EXTI_InitStructure.EXTI_Mode=EXTI_Mode_Interrupt;
+	EXTI_InitStructure.EXTI_Trigger=EXTI_Trigger_Falling;
+	EXTI_InitStructure.EXTI_LineCmd=ENABLE;
+	EXTI_Init(&EXTI_InitStructure);
 	
-	NVIC_Initstructure.NVIC_IRQChannel=EXTI0_IRQn;
-	NVIC_Initstructure.NVIC_IRQChannelPreemptionPriority=0;
-	NVIC_Initstructure.NVIC_IRQChannelSubPriority=0;
-	NVIC_Initstructure.NVIC_IRQChannelCmd=ENABLE;
-	NVIC_Init(&NVIC_Initstructure);
+	NVIC_InitStructure.NVIC_IRQChannel=EXTI0_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority=0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
 	
 	
 	

@@ -165,14 +165,22 @@ void SysTick_Handler(void)
   */
 
 void EXTI0_IRQHandler(void){
-	
-	
 	if(EXTI_GetITStatus(EXTI_Line0)!=RESET){
 			EXTI_ClearITPendingBit(EXTI_Line0);
 			
 	}
-
-
-
 }
+
+/**
+  * @brief  USART1 接收：，Step 10 填业务
+  */
+
+void USART1_IRQHandler(void)
+{
+    if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+    {
+        USART_ReceiveData(USART1);   /* 读 DR 自动清 RXNE；不读会反复进中断 */
+    }
+}
+
 
