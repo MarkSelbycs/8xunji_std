@@ -32,7 +32,7 @@ void xun8_KeyAction(void){
 	}
 	if(mode==2){
 		for(i=0;i<=7;i++){
-			ADC_setvalue[i]=(ADC_value[i]+ADC_value[i])/2;
+			ADC_setvalue[i]=(ADC_value[i]+ADC_setvalue[i])/2;
 		}
 		mode=3;
 	}
