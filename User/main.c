@@ -3,6 +3,7 @@
 #include "gpio.h"
 #include "usart.h"
 #include <stdio.h>
+#include "xun8.h"
 
 
 int main(void){
@@ -11,24 +12,33 @@ int main(void){
 	delay_init();
 	GPIO_Config();
 	USART1_Config();
-	printf("Steps5 usart ok\r\n");
+	xun8_Init();
 	
 	
   while (1)
   {
-		if(GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_1))
-			GPIO_ResetBits(GPIOB,GPIO_Pin_1);
+	if (mode == 0)               
+  {
+		if (GPIO_ReadOutputDataBit(GPIOB, GPIO_Pin_1))
+				GPIO_ResetBits(GPIOB, GPIO_Pin_1);
 		else
-			GPIO_SetBits(GPIOB,GPIO_Pin_1);
-		delay_ms(50); 
-		printf("usart ok\r\n");
-		}				
+				GPIO_SetBits(GPIOB, GPIO_Pin_1);
+		delay_ms(50);
+		}
+	  if (mode == 1)               
+	{
+			if (GPIO_ReadOutputDataBit(GPIOB, GPIO_Pin_1))
+					GPIO_ResetBits(GPIOB, GPIO_Pin_1);
+			else
+					GPIO_SetBits(GPIOB, GPIO_Pin_1);
+			delay_ms(200);
+	}
 
 
-
-
-
-}
+    }
+		
+		
+}	
 
 
 

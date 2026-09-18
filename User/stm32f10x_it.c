@@ -24,6 +24,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
 #include "delay.h"
+#include "xun8.h"
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
   */
@@ -166,7 +167,8 @@ void SysTick_Handler(void)
 
 void EXTI0_IRQHandler(void){
 	if(EXTI_GetITStatus(EXTI_Line0)!=RESET){
-			EXTI_ClearITPendingBit(EXTI_Line0);
+		xun8_KeyAction();
+		EXTI_ClearITPendingBit(EXTI_Line0);
 			
 	}
 }
