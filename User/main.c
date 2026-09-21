@@ -4,6 +4,7 @@
 #include "usart.h"
 #include <stdio.h>
 #include "xun8.h"
+#include "adc.h"
 
 
 int main(void){
@@ -13,7 +14,7 @@ int main(void){
 	GPIO_Config();
 	USART1_Config();
 	xun8_Init();
-	
+	ADC1_Config();
 	
   while (1)
   {
