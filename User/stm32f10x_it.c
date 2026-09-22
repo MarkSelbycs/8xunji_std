@@ -185,4 +185,11 @@ void USART1_IRQHandler(void)
     }
 }
 
+void DMA1_Channel1_IRQHandler(void){
+		xun8_UpdateOutputs();
+	DMA_ClearITPendingBit(DMA1_IT_TC1);
+
+}
+
+
 
