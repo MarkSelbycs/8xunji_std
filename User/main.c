@@ -7,7 +7,18 @@
 #include "adc.h"
 #include "dma.h"
 #include "tim.h"
+#include "i2c.h"
 
+uint32_t addr, writeFlashData;  
+uint32_t da;
+
+void writeFlashtest(void){
+	FLASH_Unlock();
+	FLASH_ErasePage(addr);
+	FLASH_ProgramWord(addr,writeFlashData);
+	FLASH_Lock();
+
+}
 
 int main(void){
 	
@@ -17,6 +28,7 @@ int main(void){
 	GPIO_Config();
 	DMA1_Config();
 	ADC1_Config();
+	I2C2_Config(); 
 	TIM2_Config();
 	USART1_Config();
 	TIM3_Config();
@@ -26,7 +38,7 @@ int main(void){
   while (1)
   {
 		if(mode==0){GPIOB->ODR ^=GPIO_Pin_1;delay_ms(50);}
-		if(mode==0){GPIOB->ODR ^=GPIO_Pin_1;delay_ms(50);}
+		if(mode==1){GPIOB->ODR ^=GPIO_Pin_1;delay_ms(200);}
 	
 
 
