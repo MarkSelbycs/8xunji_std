@@ -1,4 +1,5 @@
 # 8xunji_std
+八路循迹模块
 STM32 底层驱动工程，包含：
 - RCC HSI 8MHz 时钟配置
 - SysTick 毫秒延时
