@@ -25,6 +25,7 @@
 #include "stm32f10x_it.h"
 #include "delay.h"
 #include "xun8.h"
+#include "stdio.h"
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
   */
@@ -173,17 +174,7 @@ void EXTI0_IRQHandler(void){
 	}
 }
 
-/**
-  * @brief  USART1 接收：，Step 10 填业务
-  */
 
-void USART1_IRQHandler(void)
-{
-    if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
-    {
-        USART_ReceiveData(USART1);  
-    }
-}
 
 void DMA1_Channel1_IRQHandler(void){
 	if(DMA_GetITStatus(DMA1_IT_TC1)!=RESET){	
@@ -197,5 +188,19 @@ void TIM3_IRQHandler(void){
 		TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
 	}
 	
+}
+
+/**
+  * @brief  USART1 接收：，Step 10 填业务
+  */
+
+void USART1_IRQHandler(void){
+	if(USART_GetITStatus(USART1,USART_IT_RXNE)!=RESET){
+	rx=USART_ReceiveData(USART1);
+		if(rx=='1'){
+			printf("Hello\r\n");
+		}
+	}
+
 }
 

@@ -25,7 +25,8 @@ int main(void){
 	
   while (1)
   {
-	
+		if(mode==0){GPIOB->ODR ^=GPIO_Pin_1;delay_ms(50);}
+		if(mode==0){GPIOB->ODR ^=GPIO_Pin_1;delay_ms(50);}
 	
 
 
