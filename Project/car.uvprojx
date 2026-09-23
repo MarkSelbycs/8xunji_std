@@ -419,6 +419,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\dma.c</FilePath>
             </File>
+            <File>
+              <FileName>tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\tim.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

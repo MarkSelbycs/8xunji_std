@@ -35,5 +35,6 @@ void ADC1_Config(){
 		while(ADC_GetResetCalibrationStatus(ADC1)==SET){}
 		ADC_StartCalibration(ADC1);
 		while(ADC_GetCalibrationStatus(ADC1)==SET){}
-					
+		ADC_ExternalTrigConvCmd(ADC1, ENABLE);	
+		ADC_DMACmd(ADC1, ENABLE); 			
 }

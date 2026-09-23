@@ -6,41 +6,30 @@
 #include "xun8.h"
 #include "adc.h"
 #include "dma.h"
+#include "tim.h"
 
 
 int main(void){
 	
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 	delay_init();
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+	
 	GPIO_Config();
 	DMA1_Config();
 	ADC1_Config();
+	TIM2_Config();
 	USART1_Config();
+	TIM3_Config();
 	xun8_Init();
 	
 	
   while (1)
   {
-	if (mode == 0)               
-  {
-		if (GPIO_ReadOutputDataBit(GPIOB, GPIO_Pin_1))
-				GPIO_ResetBits(GPIOB, GPIO_Pin_1);
-		else
-				GPIO_SetBits(GPIOB, GPIO_Pin_1);
-		delay_ms(50);
-		}
-	  if (mode == 1)               
-	{
-			if (GPIO_ReadOutputDataBit(GPIOB, GPIO_Pin_1))
-					GPIO_ResetBits(GPIOB, GPIO_Pin_1);
-			else
-					GPIO_SetBits(GPIOB, GPIO_Pin_1);
-			delay_ms(200);
-	}
+	
+	
 
 
-    }
-		
+   }
 		
 }	
 

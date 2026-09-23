@@ -181,7 +181,7 @@ void USART1_IRQHandler(void)
 {
     if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
     {
-        USART_ReceiveData(USART1);   /* 读 DR 自动清 RXNE；不读会反复进中断 */
+        USART_ReceiveData(USART1);  
     }
 }
 
@@ -192,5 +192,10 @@ void DMA1_Channel1_IRQHandler(void){
 	}
 }
 
-
+void TIM3_IRQHandler(void){
+	if(TIM_GetITStatus(TIM3,TIM_IT_Update)!=RESET){
+		TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
+	}
+	
+}
 
